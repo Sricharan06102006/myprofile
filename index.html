@@ -3,41 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Home</title>
+  <title>Sricharan | Portfolio</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
-<body class="neon-theme">
-  <header>
-    <nav class="navbar">
-      <a href="index.html" class="active">Home</a>
-      <a href="skills.html">Skills</a>
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
+<body>
+  <header class="topbar">
+    <nav>
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#about" class="nav-link">About Me</a>
+      <a href="#projects" class="nav-link">Projects</a>
     </nav>
   </header>
 
-  <section class="hero page-section">
-    <h1>Hi, I'm Sricharan</h1>
-    <p><b>I am a driven and curious technologist, currently pursuing a B.Tech in Cloud Technology and Mobile Applications at Jain University, Bangalore.
-
-My areas of interest include:
-
-<br>Cloud Computing</br>
-<br>Internet of Things (IoT)</br>
-<br>Drone Technology & Automation</br>
-<br>Web & Mobile App Development</br>
-<br>Cybersecurity & CTF Challenges</br>
-
-As the Event Manager of the Cloud Club, I actively organize Capture The Flag (CTF) events and hands-on workshops, fostering a collaborative tech community.
-
-I enjoy exploring the convergence of software and hardware, particularly through IoT-based systems and drones integrated with cloud platforms.</b></p>
-
-    <a href="projects.html" class="neon-button">View Projects</a>
+  <section id="home" class="section home">
+    <h1>Hi, I'm Sricharan G</h1>
+    <p>Cloud Tech | IoT | App Developer | Web Developer</p>
   </section>
 
-  <footer>
-    <p>&copy; Built by Sricharan</p>
-  </footer>
+  <section id="about" class="section about">
+    <h2>About Me</h2>
+    <p>I am a tech enthusiast passionate about Cloud Computing, IoT, and building real-world solutions.</p>
+    <div class="skills">
+      <div class="skill">
+        <label>Python</label>
+        <div class="progress"><div class="bar" style="width: 60%;"></div></div>
+      </div>
+      <div class="skill">
+        <label>Java</label>
+        <div class="progress"><div class="bar" style="width: 55%;"></div></div>
+      </div>
+      <div class="skill">
+        <label>React</label>
+        <div class="progress"><div class="bar" style="width: 40%;"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section projects">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <h3>Skillchain</h3>
+      <p>A multi-page responsive portfolio website.</p>
+    </div>
+    <div class="project-card">
+      <h3>Student Info System</h3>
+      <p>Java-based record management system for students.</p>
+    </div>
+  </section>
+
+  <div id="contact-btn">📞</div>
+  <div id="contact-popup">
+    <p><strong>Phone:</strong> +91 8754073061</p>
+    <p><strong>Email:</strong> gsricharan@gmail.com</p>
+    <p><strong>LinkedIn:</strong> <a href="#" target="_blank">linkedin.com/in/yourprofile</a></p>
+    <p><strong>Instagram:</strong> <a href="#" target="_blank">@yourprofile</a></p>
+  </div>
 
   <script src="assets/main.js"></script>
 </body>
