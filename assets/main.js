@@ -21,7 +21,7 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Contact button toggle
+// Floating contact popup
 document.getElementById('contact-btn').addEventListener('click', () => {
   const popup = document.getElementById('contact-popup');
   popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
