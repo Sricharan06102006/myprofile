@@ -1,4 +1,4 @@
-// Scrollspy
+// Scrollspy and section fade-in
 const sections = document.querySelectorAll('.section');
 const navLinks = document.querySelectorAll('.nav-link');
 
@@ -11,8 +11,6 @@ window.addEventListener('scroll', () => {
     if (top >= offset && top < offset + height) {
       current = section.getAttribute('id');
     }
-
-    // Section fade-in on scroll
     if (top + window.innerHeight >= section.offsetTop + 100) {
       section.classList.add('visible');
     }
@@ -26,18 +24,20 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Floating contact toggle
-document.getElementById('contact-btn').addEventListener('click', () => {
-  const popup = document.getElementById('contact-popup');
-  popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+// Toggle contact popup
+const contactBtn = document.getElementById('contact-btn');
+const contactPopup = document.getElementById('contact-popup');
+contactBtn.addEventListener('click', () => {
+  contactPopup.style.display = contactPopup.style.display === 'block' ? 'none' : 'block';
 });
 
-// Animate circular skills
+// Animate circular skill progress
 window.addEventListener('load', () => {
   document.querySelectorAll('.circle').forEach(el => {
     const percent = el.getAttribute('data-percent');
     const circle = el.querySelector('circle');
     const offset = 251 - (251 * percent) / 100;
-    circle.style.setProperty('--offset', offset);
+    circle.style.strokeDasharray = 251;
+    circle.style.strokeDashoffset = offset;
   });
 });
