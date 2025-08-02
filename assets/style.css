@@ -13,18 +13,28 @@ body {
 
 .section {
   min-height: 100vh;
-  padding: 100px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  scroll-snap-align: start;
+  padding: 100px 30px;
+  position: relative;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 0;
+}
+
+.section > * {
+  position: relative;
+  z-index: 1;
 }
 
 .topbar {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.5);
   padding: 15px 30px;
   display: flex;
   justify-content: center;
@@ -50,10 +60,11 @@ nav {
 
 .hero-content {
   text-align: center;
+  margin-top: 50px;
 }
 
 .hero-content h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   color: #0ff;
   text-shadow: 0 0 10px #0ff;
 }
@@ -61,11 +72,10 @@ nav {
 .hero-content p {
   font-size: 1.2rem;
   margin-top: 10px;
-  color: #fff;
 }
 
 .social-icons a {
-  margin: 15px 10px;
+  margin: 20px 10px;
   color: #0ff;
   font-size: 1.5rem;
   transition: 0.3s;
@@ -76,18 +86,18 @@ nav {
 
 .about-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 50px;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
 }
 
 .profile-pic {
   width: 200px;
   height: 200px;
-  background: #111;
   border-radius: 50%;
-  border: 2px solid #0ff;
+  background: url('../assets/images/profile.jpg') center/cover no-repeat;
+  border: 3px solid #0ff;
 }
 
 .bio {
@@ -96,9 +106,59 @@ nav {
 
 .bio a {
   color: #0ff;
-  text-decoration: none;
 }
 
+.circular-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(#111, #000);
+  border: 2px solid #0ff;
+  position: relative;
+  text-align: center;
+  color: #0ff;
+  box-shadow: 0 0 12px #0ff88c;
+}
+
+.circle svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg);
+  width: 100px;
+  height: 100px;
+}
+
+.circle circle {
+  fill: none;
+  stroke: #0ff;
+  stroke-width: 8;
+  stroke-dasharray: 251;
+  stroke-dashoffset: 251;
+  animation: fillCircle 2s forwards;
+}
+
+.circle span {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+@keyframes fillCircle {
+  to {
+    stroke-dashoffset: var(--offset, 0);
+  }
+}
+
+/* Projects */
 .projects-container {
   display: flex;
   flex-wrap: wrap;
@@ -120,7 +180,6 @@ nav {
   margin-left: 10px;
   padding-left: 15px;
   margin-bottom: 30px;
-  position: relative;
 }
 
 .timeline li span {
@@ -140,12 +199,13 @@ nav {
 .project-card {
   background: #111;
   padding: 20px;
-  margin-bottom: 20px;
   border-radius: 10px;
   border: 1px solid #0ff;
   box-shadow: 0 0 10px #0ff44c;
+  margin-bottom: 20px;
 }
 
+/* Contact button */
 #contact-btn {
   position: fixed;
   bottom: 20px;
@@ -177,8 +237,19 @@ nav {
   margin: 8px;
   color: #0ff;
   font-size: 22px;
-  transition: 0.3s ease;
+  transition: 0.3s;
 }
 #contact-popup a:hover {
   color: #f0f;
+}
+
+/* Fade-in on scroll */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
