@@ -1,21 +1,6 @@
 const sections = document.querySelectorAll('.section');
 const navLinks = document.querySelectorAll('.nav-link');
 
-// Observer for fade-in/fade-out on scroll
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    } else {
-      entry.target.classList.remove('visible');
-    }
-  });
-}, {
-  threshold: 0.2,
-});
-
-sections.forEach(section => observer.observe(section));
-
 // ScrollSpy for nav
 window.addEventListener('scroll', () => {
   let current = '';
@@ -36,7 +21,7 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Contact popup
+// Contact popup toggle
 const contactBtn = document.getElementById('contact-btn');
 const contactPopup = document.getElementById('contact-popup');
 contactBtn.addEventListener('click', () => {
