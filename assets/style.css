@@ -60,19 +60,34 @@ nav .nav-link.active::after {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-  will-change: opacity, transform;
   position: relative;
+  z-index: 0;
+  overflow: hidden;
 }
 
-.section.visible {
-  opacity: 1;
-  transform: translateY(0);
+/* Top & bottom fade overlay */
+.section::before,
+.section::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 1;
+  pointer-events: none;
 }
 
-/* Background images for sections */
+.section::before {
+  top: 0;
+  background: linear-gradient(to bottom, #000 0%, transparent 100%);
+}
+
+.section::after {
+  bottom: 0;
+  background: linear-gradient(to top, #000 0%, transparent 100%);
+}
+
+/* Background images */
 .home {
   background: url('../assets/images/bg-home.jpg') center/cover no-repeat;
 }
@@ -83,6 +98,7 @@ nav .nav-link.active::after {
   background: url('../assets/images/bg-projects.jpg') center/cover no-repeat;
 }
 
+/* Hero content */
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -120,6 +136,7 @@ nav .nav-link.active::after {
   text-shadow: 0 0 8px #0ff;
 }
 
+/* About Section */
 .about-container {
   display: flex;
   gap: 50px;
@@ -140,6 +157,7 @@ nav .nav-link.active::after {
   min-width: 300px;
 }
 
+/* Circular Skills */
 .circular-skills {
   display: flex;
   gap: 20px;
@@ -190,6 +208,7 @@ nav .nav-link.active::after {
   margin-top: 3px;
 }
 
+/* Projects */
 .projects-container {
   display: flex;
   gap: 40px;
@@ -232,6 +251,7 @@ nav .nav-link.active::after {
   box-shadow: 0 0 10px #0ff3;
 }
 
+/* Contact Popup */
 #contact-btn {
   position: fixed;
   bottom: 20px;
