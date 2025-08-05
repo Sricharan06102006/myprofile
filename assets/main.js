@@ -1,7 +1,22 @@
-// Scrollspy and section fade-in
 const sections = document.querySelectorAll('.section');
 const navLinks = document.querySelectorAll('.nav-link');
 
+// Observer for fade-in/fade-out on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    } else {
+      entry.target.classList.remove('visible');
+    }
+  });
+}, {
+  threshold: 0.2,
+});
+
+sections.forEach(section => observer.observe(section));
+
+// ScrollSpy for nav
 window.addEventListener('scroll', () => {
   let current = '';
   sections.forEach(section => {
@@ -10,9 +25,6 @@ window.addEventListener('scroll', () => {
     const height = section.offsetHeight;
     if (top >= offset && top < offset + height) {
       current = section.getAttribute('id');
-    }
-    if (top + window.innerHeight >= section.offsetTop + 100) {
-      section.classList.add('visible');
     }
   });
 
@@ -24,14 +36,14 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Toggle contact popup
+// Contact popup
 const contactBtn = document.getElementById('contact-btn');
 const contactPopup = document.getElementById('contact-popup');
 contactBtn.addEventListener('click', () => {
   contactPopup.style.display = contactPopup.style.display === 'block' ? 'none' : 'block';
 });
 
-// Animate circular skill progress
+// Skill circle animation
 window.addEventListener('load', () => {
   document.querySelectorAll('.circle').forEach(el => {
     const percent = el.getAttribute('data-percent');
@@ -41,3 +53,4 @@ window.addEventListener('load', () => {
     circle.style.strokeDashoffset = offset;
   });
 });
+
