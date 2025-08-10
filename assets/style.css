@@ -157,6 +157,33 @@ nav .nav-link.active::after {
   min-width: 300px;
 }
 
+.bio h3 {
+  margin-top: 20px;
+  color: #0ff;
+}
+
+/* Timeline (used in About & Projects) */
+.timeline {
+  list-style: none;
+  padding-left: 0;
+}
+
+.timeline li {
+  margin-bottom: 20px;
+  padding-left: 10px;
+  border-left: 3px solid #0ff;
+}
+
+.timeline span {
+  font-size: 0.85rem;
+  color: #ccc;
+}
+
+.timeline h4 {
+  margin: 5px 0;
+  color: #0ff;
+}
+
 /* Circular Skills */
 .circular-skills {
   display: flex;
@@ -208,7 +235,7 @@ nav .nav-link.active::after {
   margin-top: 3px;
 }
 
-/* Projects */
+/* Projects Section Layout */
 .projects-container {
   display: flex;
   gap: 40px;
@@ -219,27 +246,6 @@ nav .nav-link.active::after {
 .project-cards-column {
   flex: 1;
   min-width: 300px;
-}
-
-.timeline {
-  list-style: none;
-  padding-left: 0;
-}
-
-.timeline li {
-  margin-bottom: 20px;
-  padding-left: 10px;
-  border-left: 3px solid #0ff;
-}
-
-.timeline span {
-  font-size: 0.85rem;
-  color: #ccc;
-}
-
-.timeline h4 {
-  margin: 5px 0;
-  color: #0ff;
 }
 
 .project-card {
@@ -291,4 +297,5 @@ nav .nav-link.active::after {
   color: #fff;
   text-shadow: 0 0 6px #0ff;
 }
+
 
